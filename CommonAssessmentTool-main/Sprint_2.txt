@@ -1,0 +1,14 @@
+Sprint 2:
+
+After our group discussion, we decided to use SQLite for its simplicity and ease of use to create our database. It doesn't require installation, since it's just a file that is integrated directly into Python, making it an ideal choice for smaller applications like our project.
+
+Some of the main tasks we have done:
+1.Set up a virtual environment for our API development and installed the necessary packages from requirments.txt.
+2.Created database.py:
+Established the database connection.
+Provided a base class for the models.
+3.Created models.py:
+Designed the schema for the Client table.
+Defined fields with appropriate data types.
+4.Updated main.py:
+Ensured all database tables can be created when the app starts.

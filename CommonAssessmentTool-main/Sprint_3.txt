@@ -1,0 +1,15 @@
+Sprint 3
+
+Main tasks we have done since sprint 2:
+
+-Updated schema.py
+Since we were adding CRUD operations, we needed to add schemas for creating, returning, and updating client information.
+
+-Updated router.py
+The starter code in this file was only handling the predictions endpoint. We added complete CRUD operations including adding new clients, getting all clients or a specific client, modifying client information, and removing clients.
+
+-Added service.py
+We don’t want router.py to be handling HTTP requests and business logic at the same time, so we decided to add a service layer in the service folder so that router.py handles HTTP requests and this service layer manages the business logic.
+
+-Updated main.py
+We added API metadata for information to be more complete.

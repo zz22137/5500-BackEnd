@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Input Form</title>
+</head>
+<body>
+    <h2>Prediction Input Form</h2>
+    <form id="predictionForm">
+        <label for="age">Age:</label><br>
+        <input type="number" id="age" name="age" min="0" required><br><br>
+
+        <label for="gender">Gender:</label><br>
+        <input type="text" id="gender" name="gender" required><br><br>
+
+        <label for="work_experience">Work Experience (in years):</label><br>
+        <input type="number" id="work_experience" name="work_experience" min="0" required><br><br>
+
+        <label for="canada_workex">Canada Work Experience (in years):</label><br>
+        <input type="number" id="canada_workex" name="canada_workex" min="0" required><br><br>
+
+        <label for="dep_num">Number of Dependents:</label><br>
+        <input type="number" id="dep_num" name="dep_num" min="0" required><br><br>
+
+        <label for="canada_born">Born in Canada?</label><br>
+        <select id="canada_born" name="canada_born" required>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br><br>
+
+        <label for="citizen_status">Citizen Status:</label><br>
+        <input type="text" id="citizen_status" name="citizen_status" required><br><br>
+
+        <label for="level_of_schooling">Level of Schooling:</label><br>
+        <input type="text" id="level_of_schooling" name="level_of_schooling" required><br><br>
+
+        <label for="fluent_english">Fluent in English?</label><br>
+        <select id="fluent_english" name="fluent_english" required>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br><br>
+
+        <label for="reading_english_scale">Reading English Scale (1-10):</label><br>
+        <input type="number" id="reading_english_scale" name="reading_english_scale" min="1" max="10" required><br><br>
+
+        <label for="speaking_english_scale">Speaking English Scale (1-10):</label><br>
+        <input type="number" id="speaking_english_scale" name="speaking_english_scale" min="1" max="10" required><br><br>
+
+        <label for="writing_english_scale">Writing English Scale (1-10):</label><br>
+        <input type="number" id="writing_english_scale" name="writing_english_scale" min="1" max="10" required><br><br>
+
+        <label for="numeracy_scale">Numeracy Scale (1-10):</label><br>
+        <input type="number" id="numeracy_scale" name="numeracy_scale" min="1" max="10" required><br><br>
+
+        <label for="computer_scale">Computer Scale (1-10):</label><br>
+        <input type="number" id="computer_scale" name="computer_scale" min="1" max="10" required><br><br>
+
+        <label for="transportation_bool">Has Access to Transportation?</label><br>
+        <select id="transportation_bool" name="transportation_bool" required>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br><br>
+
+        <label for="caregiver_bool">Is a Caregiver?</label><br>
+        <select id="caregiver_bool" name="caregiver_bool" required>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br><br>
+
+        <label for="housing">Housing Status:</label><br>
+        <input type="text" id="housing" name="housing" required><br><br>
+
+        <label for="income_source">Income Source Code:</label><br>
+        <input type="number" id="income_source" name="income_source" required><br><br>
+
+        <label for="felony_bool">Has Felony Conviction?</label><br>
+        <select id="felony_bool" name="felony_bool" required>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br><br>
+
+        <label for="attending_school">Currently Attending School?</label><br>
+        <select id="attending_school" name="attending_school" required>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br><br>
+
+        <label for="currently_employed">Currently Employed?</label><br>
+        <select id="currently_employed" name="currently_employed" required>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br><br>
+
+        <label for="substance_use">Substance Use Status:</label><br>
+        <input type="text" id="substance_use" name="substance_use" required><br><br>
+
+        <label for="time_unemployed">Time Unemployed (in months):</label><br>
+        <input type="number" id="time_unemployed" name="time_unemployed" min="0" required><br><br>
+
+        <label for="need_mental_health_support_bool">Needs Mental Health Support?</label><br>
+        <select id="need_mental_health_support_bool" name="need_mental_health_support_bool" required>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br><br>
+
+        <button type="button" onclick="submitForm()">Submit</button>
+    </form>
+
+    <script>
+        function submitForm() {
+            const form = document.getElementById('predictionForm');
+            const formData = new FormData(form);
+            const json = JSON.stringify(Object.fromEntries(formData));
+            
+            fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: json
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>

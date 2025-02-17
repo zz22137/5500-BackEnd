@@ -1,0 +1,9 @@
+Sprint 1 (by October 22, 2024)
+
+**Work that has been done, learnings and findings**
+
+Forked and cloned the repository
+Decomposed user story and identified individual tasks: database setup, API development, documentation of API usage, testing for expected behavior, etc
+Conducted research on APIs: learned about the concept of API and API endpoints, examined the differences between FastAPI and traditional REST APIs
+Explored API CRUD Functionality: how to create, read, update, and delete client information
+Familiarized ourselves with error handling: researched into best practices for handling common API errors with a focus on how to return appropriate HTTP status codes
